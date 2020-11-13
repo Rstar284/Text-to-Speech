@@ -1,3 +1,4 @@
+const Filesaver = require('file-saver')
 const playButton = document.getElementById('play')
 const pauseButton = document.getElementById('pause')
 const stopButton = document.getElementById('stop')
@@ -32,4 +33,9 @@ function pauseText() {
 function stopText() {
     speechSynthesis.resume()
     speechSynthesis.cancel()
+}
+
+function saveText() {
+    var blob = new Blob([textinput.value], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, "Rstar Text to Speech Output.txt");
 }
