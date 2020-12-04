@@ -1,4 +1,3 @@
-const Filesaver = require('file-saver')
 const playButton = document.getElementById('play')
 const pauseButton = document.getElementById('pause')
 const stopButton = document.getElementById('stop')
@@ -8,9 +7,12 @@ const speedInput = document.getElementById('Speed')
 playButton.addEventListener('click', () => {
     playText(textInput.value)
 })
-
+   
 pauseButton.addEventListener('click', pauseText)
 stopButton.addEventListener('click', stopText)
+saveButton.addEventListener('click', () => {
+    saveText(textinput.value)
+})
 
 function playText(text) {
     if (speechSynthesis.paused && speechSynthesis.speaking) {
@@ -33,9 +35,4 @@ function pauseText() {
 function stopText() {
     speechSynthesis.resume()
     speechSynthesis.cancel()
-}
-
-function saveText() {
-    var blob = new Blob([textinput.value], {type: "text/plain;charset=utf-8"});
-    FileSaver.saveAs(blob, "Rstar Text to Speech Output.txt");
 }
