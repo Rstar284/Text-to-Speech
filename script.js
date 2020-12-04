@@ -10,9 +10,6 @@ playButton.addEventListener('click', () => {
    
 pauseButton.addEventListener('click', pauseText)
 stopButton.addEventListener('click', stopText)
-saveButton.addEventListener('click', () => {
-    saveText(textinput.value)
-})
 
 function playText(text) {
     if (speechSynthesis.paused && speechSynthesis.speaking) {
